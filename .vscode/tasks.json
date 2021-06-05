@@ -1,0 +1,85 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "build_DiskReader",
+			"command": "C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-I", "${workspaceFolder}\\3rdParty", "-I", "${workspaceFolder}\\include",
+				"-c", "${workspaceFolder}\\source\\DiskReader.cpp"
+			],
+			"problemMatcher": [	"$gcc" ],
+			"options": { "cwd": "${workspaceFolder}\\build"},
+			"group": { "kind": "build", "isDefault": true },
+		},
+
+		{
+			"type": "cppbuild",
+			"label": "build_FileHasher",
+			"command": "C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-I", "${workspaceFolder}\\3rdParty", "-I", "${workspaceFolder}\\include",
+				"-c", "${workspaceFolder}\\source\\FileHasher.cpp"
+			],
+			"problemMatcher": [	"$gcc" ],
+			"options": { "cwd": "${workspaceFolder}\\build"},
+			"group": { "kind": "build", "isDefault": true },
+		},
+
+		{
+			"type": "cppbuild",
+			"label": "build_FileEnumerator",
+			"command": "C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-I", "${workspaceFolder}\\3rdParty", "-I", "${workspaceFolder}\\include",
+				"-c", "${workspaceFolder}\\source\\FileEnumerator.cpp"
+			],
+			"problemMatcher": [	"$gcc" ],
+			"options": { "cwd": "${workspaceFolder}\\build"},
+			"group": { "kind": "build", "isDefault": true },
+		},
+
+		{
+			"type": "cppbuild",
+			"label": "build_DupSearch",
+			"command": "C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-I", "${workspaceFolder}\\3rdParty", "-I", "${workspaceFolder}\\include",
+				"-c", "${workspaceFolder}\\source\\DupSearch.cpp"
+			],
+			"problemMatcher": [	"$gcc" ],
+			"options": { "cwd": "${workspaceFolder}\\build"},
+			"group": { "kind": "build", "isDefault": true },
+		},
+
+		{
+			"type": "cppbuild",
+			"label": "build_MD5",
+			"command": "C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-I", "${workspaceFolder}\\3rdParty", "-I", "${workspaceFolder}\\include",
+				"-c", "${workspaceFolder}\\3rdParty\\md5.cpp"
+			],
+			"problemMatcher": [	"$gcc" ],
+			"options": { "cwd": "${workspaceFolder}\\build"},
+			"group": { "kind": "build", "isDefault": true },
+		},
+
+		{
+			"type": "cppbuild",
+			"label": "build_main",
+			"command": "C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-I", "${workspaceFolder}\\3rdParty", "-I", "${workspaceFolder}\\include",
+				"-g", "md5.o", "DiskReader.o", "FileHasher.o", "FileEnumerator.o", "DupSearch.o",
+				"${workspaceFolder}\\source\\main.cpp",
+				"-o" , "finddups"
+			],
+			"problemMatcher": [	"$gcc" ],
+			"options": { "cwd": "${workspaceFolder}\\build"},
+			"dependsOn" : ["build_DiskReader", "build_FileHasher", "build_FileEnumerator", "build_DupSearch", "build_MD5"],
+			"group": { "kind": "build", "isDefault": true },
+		}
+	]
+}
